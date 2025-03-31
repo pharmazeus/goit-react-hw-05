@@ -7,15 +7,6 @@ const options = {
   },
 };
 
-export const fetchMovies = async () => {
-  const url =
-    "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1";
-
-  const response = await axios.get(url, options);
-  console.log(response.data);
-  return response.data.results;
-};
-
 export const fetchTrendMovies = async () => {
   const url = "https://api.themoviedb.org/3/trending/movie/day";
 
@@ -26,5 +17,51 @@ export const fetchTrendMovies = async () => {
   } catch (error) {
     console.error("Failed to fetch trending movies:", error);
     throw error;
+  }
+};
+
+export const fetchMovieById = async (movieId) => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
+  try {
+    const response = await axios.get(url, options);
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchMovieReview = async (movieId) => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1`;
+  try {
+    const response = await axios.get(url, options);
+
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchMovieCast = async (movieId) => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
+  try {
+    const response = await axios.get(url, options);
+
+    return response.data.cast;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchMoviesByQuery = async (query) => {
+  const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
+    query
+  )}&include_adult=false&language=en-US&page=1`;
+  try {
+    const response = await axios.get(url, options);
+
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
   }
 };

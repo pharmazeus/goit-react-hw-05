@@ -1,14 +1,37 @@
-/* Navigation.module.css */
+header {
+  background-color: #141414;
+  padding: 16px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: "Rubik", sans-serif;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
 .link {
   text-decoration: none;
-  color: #333;
-  margin-right: 16px;
-  font-weight: normal;
-  transition: color 0.2s;
+  color: #ffffffcc;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.link:hover {
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .active {
-  color: tomato;
-  font-weight: bold;
-  text-decoration: underline;
+  color: #e50914;
+  font-weight: 700;
+  border-bottom: 2px solid #e50914;
+  text-decoration: none;
 }

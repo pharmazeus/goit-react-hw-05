@@ -14,3 +14,10 @@ button:focus {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
+.container {
+  padding: 0 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
